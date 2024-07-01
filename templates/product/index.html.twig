@@ -1,0 +1,447 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cuissard EKOI 3D GEL PERF HEXA Noir{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="product-header">
+      <div class="gallery">
+        <img src="/img/product-1.jpg" alt="">
+        <img src="/img/product-2.jpg" alt="">
+        <img src="/img/product-3.jpg" alt="">
+        <img src="/img/product-4.jpg" alt="">
+        <img src="/img/product-5.jpg" alt="">
+        <img src="/img/product-6.jpg" alt="">
+      </div>
+      <div class="content">
+        <h1 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h1>
+        <p class="short-description">Le cuissard de vélo fait partie de l’équipement indispensable de tous les cyclistes qui pratiquent le vélo de route.</p>
+        <div class="price discounted">
+          <div class="current-price">93,49 €</div>
+          <div class="original-price">169,99 €</div>
+          <div class="discount">45% de réduction</div>
+          <div class="pay-in-three">Payer en 3x sans frais (3 x 31,16 €)</div>
+        </div>
+        <a class="review-stars" href="#review">
+          <img src="/img/star-review.svg" alt="">
+          <span>(43)</span>
+        </a>
+        {# <div class="combination-wrapper">
+          <div class="combination color">
+            <div class="name">5 Couleurs disponibles</div>
+            <div class="list">
+
+            </div>
+          </div>
+        </div> #}
+        <button class="add-to-cart">Ajouter au panier</button>
+        <p class="shipping-reassurance">Livraison offerte</p>
+      </div>
+    </div>
+    <div class="product-description">
+    <h2 class="section-title">Description</h2>
+      <div class="row col-2">
+        <div>
+          <h2 class="title">FIBRE HEXA</h2>
+          <p>La nouvelle génération de cuissards EKOÏ PERF HEXA 3D GEL illustre parfaitement toutes les évolutions qui proviennent des cuissards portés par nos équipes pros route.</p>
+          <p>La fibre utilisée a été développée spécialement pour EKOÏ et possède 5 caractéristiques principales : respirabilité, finesse, souplesse, solidité et opacité.</p>
+          <p>S’adressant avant tout à des pratiquants assidus ou à des compétiteurs qui peuvent rouler jusqu’à 6 heures par sortie, ce cuissard se distingue par son motif hexagonal texturé.<br>
+          Esthétique, il présente de par la spécificité géométrique de sa structure un intérêt technique majeur en favorisant l’aérodynamisme. Le flux d’air suit en effet le chemin "tracé" par les alvéoles hexagonales, optimisant ainsi la pénétration dans l’air.</p>
+          <p>Côté look, grâce à une nouvelle technique, nous avons supprimé les transferts ou l’impression de nos logos. Ces derniers sont dorénavant gravés dans le tissu. Cela assure à la fois plus de discrétion visuelle et moins d’usure sur la durée.</p>
+          <p>Les nouvelles bretelles garantissent un maintien confortable et efficace sans tension au niveau des épaules.<br>
+          La peau 3D GEL est adaptée à votre poids. Elle absorbe les micro vibrations sans être trop épaisse ; elle présente 3 largeurs et 3 densités de gel différentes ; elle évacue efficacement la transpiration car elle est micro perforée sur toute sa surface.</p>
+        </div>
+        <img src="/img/description-1.jpg" alt="">
+      </div>
+      <div class="row col-2">
+        <img src="/img/description-2.jpg" alt="">
+        <div class="list">
+          <h2 class="title">5 caractéristiques principales</h2>
+          <ol>
+            <li>Respirabilité</li>
+            <li>Finesse</li>
+            <li>Souplesse</li>
+            <li>Solidité</li>
+            <li>Opacité</li>
+          </ol>
+        </div>
+      </div>
+      <div class="row col-2">
+        <div>
+          <h2 class="title">Motif hexagonal texturé</h2>
+          <p>Esthétique et aérodynamique.</p>
+          <img src="/img/hex.jpg" alt="">
+        </div>
+        <img src="/img/description-3.jpg" alt="">
+      </div>
+      <div>
+        <h2 class="title">Peau EKOÏ 3D GEL</h2>
+        <p>3 densités de gel et 3 largeurs de peau adaptées à votre poids.</p>
+        <img src="/img/description-4.jpg" alt="">
+      </div>
+    </div>
+    <div class="product-characteristics">
+      <h2 class="section-title">Caractéristiques</h2>
+      <div class="swiper characteristics-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/img/characteristic-1.jpg" alt="">
+            <h3 class="title">PEAU GEL</h3>
+            <ul>
+              <li>Densité du GEL (85, 100, 120) adaptée à votre poids.</li>
+              <li>3 largeurs de peau (15,5cm, 16,5cm, 17,5cm) selon votre poids.</li>
+              <li>Gel injecté qui ne plisse pas et ne se déforme pas.</li>
+              <li>Séchage et évacuation de la sueur optimisée grâce aux perforations présentes sur l’ensemble de la peau : la peau reste sèche tout au long de vos sorties.</li>
+              <li>Élasticité : la peau se fait oublier et s’adapte à votre fessier.</li>
+              <li>Coutures de la peau en zig-zag pour plus de solidité et d’élasticité.</li>
+            </ul>
+          </div>
+          <div class="swiper-slide">
+            <img src="/img/characteristic-2.jpg" alt="">
+            <h3 class="title">Tissu</h3>
+            <ul>
+              <li>Lycra technique Made in France 210g / m2.</li>
+              <li>Opacité maximale pour une couleur parfaite et protection anti-UV (UPF 50+).</li>
+              <li>Fibre 250g bidirectionnelle développée spécialement pour Ekoï.</li>
+              <li>Bi-élasticité et faible déformabilité : étirement / retour à la forme d’origine.</li>
+              <li>Excellente respirabilité.</li>
+              <li>Excellent maintien musculaire et liberté de mouvement.</li>
+            </ul>
+          </div>
+          <div class="swiper-slide">
+            <img src="/img/characteristic-3.jpg" alt="">
+            <h3 class="title">Bretelles</h3>
+            <p>Avec nouvelle bande extensible pour un maintien confortable et efficace sans tension au niveau des épaules.</p>
+          </div>
+          <div class="swiper-slide">
+            <img src="/img/characteristic-4.jpg" alt="">
+            <h3 class="title">Finitions</h3>
+            <ul>
+              <li>Découpe laser au niveau des cuisses.</li>
+              <li>Inserts silicone de 5cm pour un maintien parfait sur les cuisses lors du pédalage.</li>
+              <li>Coutures plates anti friction.</li>
+              <li>Logos Ekoi gravés dans la fibre (discret et sans risque d’usure).</li>
+              <li>Motif hexagonal texturé</li>
+            </ul>
+          </div>
+        </div>
+        <div class="swiper-nav">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+    <div class="product-accordion-wrapper">
+      <div class="accordion">
+        <details open>
+          <summary>Usage</summary>
+          <ul>
+            <li>Route - jusqu’à 6h</li>
+            <li>Entraînement ou compétition.</li>
+            <li>Météo : printanière / estivale</li>
+          </ul>
+        </details>
+        <details open>
+          <summary>Composition</summary>
+          <ul>
+            <li>80% Polyamide.</li>
+            <li>20% Élasthanne.</li>
+          </ul>
+        </details>
+        <details open>
+          <summary>Conseils d’entretien</summary>
+          <ul>
+            <li>Lavage en machine à 30°.</li>
+            <li>Avant le lavage, retournez le cuissard (coutures à l’extérieur).</li>
+            <li>Pas d’essorage.</li>
+            <li>Pas d’assouplissant.</li>
+            <li>Pas de sèche-linge.</li>
+            <li>Pas de repassage</li>
+          </ul>
+        </details>
+        <details open>
+          <summary>Traçabilité et Environnement</summary>
+          <ul>
+            <li>Conception : France</li>
+            <li>TissageTricotage : Italie</li>
+            <li>Teinture : Italie</li>
+            <li>Confection : Albanie</li>
+          </ul>
+        </details>
+      </div>
+      <img src="/img/accordion.jpg" alt="">
+    </div>
+    <div class="product-review" id="review">
+      <h2 class="section-title">AVIS CLIENT</h2>
+      <img src="/img/review.jpg" alt="">
+      <a href="" class="btn btn-outline">Découvrir les avis</a>
+    </div>
+    <div class="product-size-guide">
+      <div class="content">
+        <img src="/img/size-guide.svg" alt="">
+        <div>
+          <h2 class="title">Guide des tailles</h2>
+          <p>Quelle taille me convient le mieux ?</p>
+          <a href="" class="btn btn-outline">Commencer</a>
+        </div>
+      </div>
+      <img src="/img/size-guide.jpg" alt="">
+    </div>
+  </div>
+  <div class="product-featured">
+    <div class="wrapper">
+      <h2 class="title">Vous devriez aussi aimer</h2>
+      <div class="swiper featured-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-nav">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>          
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="product-combination">
+      <div class="wrapper">
+        <h2 class="title">Équipez-vous<br> Avec toute la tenue</h2>
+        <p class="description">Le cuissard de vélo fait partie de l’équipement indispensable de tous les cyclistes qui pratiquent le vélo de route.</p>
+      </div>
+      <div class="product-wrapper">
+        <div class="product-miniature">
+          <img src="/img/miniature.jpg" alt="">
+          <div class="tags">
+            <span class="tag red">Racing</span>
+            <span class="tag new">New</span>
+            <span class="tag">8h</span>
+            <span class="tag">Anti-abrasion</span>
+            <span class="tag">Court</span>
+          </div>
+          <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+          <div class="price discounted">
+            <div class="current-price">93,49 €</div>
+            <div class="original-price">169,99 €</div>
+            <div class="discount">45% de réduction</div>
+          </div>
+          <a class="review-stars" href="#review">
+            <img src="/img/star-review.svg" alt="">
+            <span>(43)</span>
+          </a>
+        </div>
+        <div class="product-miniature">
+          <img src="/img/miniature.jpg" alt="">
+          <div class="tags">
+            <span class="tag red">Racing</span>
+            <span class="tag new">New</span>
+            <span class="tag">8h</span>
+            <span class="tag">Anti-abrasion</span>
+            <span class="tag">Court</span>
+          </div>
+          <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+          <div class="price discounted">
+            <div class="current-price">93,49 €</div>
+            <div class="original-price">169,99 €</div>
+            <div class="discount">45% de réduction</div>
+          </div>
+          <a class="review-stars" href="#review">
+            <img src="/img/star-review.svg" alt="">
+            <span>(43)</span>
+          </a>
+        </div>
+        <div class="product-miniature">
+          <img src="/img/miniature.jpg" alt="">
+          <div class="tags">
+            <span class="tag red">Racing</span>
+            <span class="tag new">New</span>
+            <span class="tag">8h</span>
+            <span class="tag">Anti-abrasion</span>
+            <span class="tag">Court</span>
+          </div>
+          <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+          <div class="price discounted">
+            <div class="current-price">93,49 €</div>
+            <div class="original-price">169,99 €</div>
+            <div class="discount">45% de réduction</div>
+          </div>
+          <a class="review-stars" href="#review">
+            <img src="/img/star-review.svg" alt="">
+            <span>(43)</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="newsletter">
+    <div class="wrapper">
+      <div class="content">
+        <h2 class="title">Notre métier, vous équipez de la tête au pied avec des produits de qualité à des coûts maîtrisés.</h2>
+        <p>Profitez de votre passion nous nous occupons de vous fournir tout ce dont vous avez besoin pour débuter, progresser et performez !</p>
+      </div>
+      <div class="form">
+        <h3 class="title">S’inscrire maintenant</h3>
+        <p>Restez dans la boucle : offres exclusives et avant-première</p>
+        <form>
+          <input type="email" name="email">
+          <button type="submit" class="btn btn-outline">Envoyer votre demande</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  <script>
+    const characteristicsSlider = new Swiper('.characteristics-slider', {
+      loop: true,
+      slidesPerView: 3,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    const featuredSlider = new Swiper('.featured-slider', {
+      loop: true,
+      slidesPerView: 3.5,
+      spaceBetween: 30,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+{% endblock %}

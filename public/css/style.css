@@ -1,0 +1,635 @@
+@font-face {
+  font-family: 'Mulish';
+  src: url('/font/Mulish-VariableFont_wght.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/font/Mulish-Italic-VariableFont_wght.ttf');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('/font/Cabin-VariableFont_wdth,wght.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('/font/Cabin-Italic-VariableFont_wdth,wght.ttf');
+  font-style: italic;
+}
+
+:root {
+  --primary: #DD122B;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Mulish', sans-serif;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Cabin', sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style-position: inside;
+}
+
+ul {
+  list-style-type: '- ';
+}
+
+ul li + li,
+ol li + li {
+  margin-top: 0.5rem;
+}
+
+input,
+button {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1em;
+}
+
+button {
+  cursor: pointer;
+}
+
+.swiper {
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.swiper-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.swiper-pagination,
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next,
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  position: unset;
+  translate: 0;
+  margin: 0;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next,
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+  width: 50px;
+  height: 50px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52"><g id="Groupe_10788" data-name="Groupe 10788" transform="translate(0.085)"><g id="Ellipse_3" data-name="Ellipse 3" transform="translate(-0.085)" fill="%23fff" stroke="%230b0b0b" stroke-width="1"><circle cx="26" cy="26" r="26" stroke="none"/><circle cx="26" cy="26" r="25.5" fill="none"/></g><g id="Groupe_10782" data-name="Groupe 10782" transform="translate(22.064 18.17)"><path id="Tracé_19" data-name="Tracé 19" d="M8.548,7.641,1.07.183a.627.627,0,0,0-.885.888L7.218,8.085.184,15.1a.627.627,0,0,0,.885.887L8.548,8.529a.626.626,0,0,0,0-.887Z"/></g></g></svg>');
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+  rotate: 180deg;
+}
+
+.swiper-button-prev::after,
+.swiper-rtl .swiper-button-next::after,
+.swiper-button-next::after,
+.swiper-rtl .swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-pagination-bullet {
+  width: 50px;
+  height: 8px;
+  opacity: 1;
+  background-color: #F2F2F2;
+  border-radius: 0;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: black;
+}
+
+.btn {
+  display: block;
+  width: fit-content;
+  min-width: 240px;
+  max-width: 100%;
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.btn-outline {
+  border-color: black;
+  background-color: white;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.section-title {
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid;
+}
+
+.product-header {
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 8fr 3fr 1fr;
+  gap: 30px;
+}
+
+.product-header .gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-height: 75vh;
+  overflow: auto;
+}
+
+.product-header .gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.product-header .gallery img {
+  width: 100%;
+  display: block;
+}
+
+.product-header .title {
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1px;
+  font-size: 2em;
+  line-height: 1em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.product-header .short-description {
+  margin-bottom: 1.5em;
+}
+
+.product-header .price {
+  margin-bottom: 1.5em;
+}
+
+.product-header .current-price {
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+.product-header .original-price {
+font-size: 1em;
+display: inline-block;
+margin-left: 15px;
+}
+
+.product-header .discounted .original-price {
+  text-decoration: line-through;
+}
+
+.product-header .discount {
+  color: var(--primary);
+  margin-top: 0.5em;
+}
+
+.product-header .pay-in-three {
+  margin-top: 0.5em;
+}
+
+.product-header .review-stars {
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: black;
+}
+
+.product-header .add-to-cart {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1.2em;
+  margin-top: 2em;
+  cursor: pointer;
+}
+
+.product-header .add-to-cart:hover {
+  background-color: black;
+}
+
+.product-header .shipping-reassurance {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+.product-header .shipping-reassurance::before {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="31.547" height="20.84" viewBox="0 0 31.547 20.84"><g id="Groupe_173510" data-name="Groupe 173510" transform="translate(-0.296 -1.632)"><path id="Tracé_53095" data-name="Tracé 53095" d="M4.481,19.7H2.57A2.283,2.283,0,0,1,.3,17.424V3.906A2.281,2.281,0,0,1,2.57,1.632H20.332a2.208,2.208,0,0,1,2.2,2.2v1.97H26.66A2.669,2.669,0,0,1,29,7.139l2.283,3.852a3.931,3.931,0,0,1,.565,2.058v4.375A2.278,2.278,0,0,1,29.57,19.7h-.118a3.256,3.256,0,0,1-6.442,0h-.832a.508.508,0,0,0-.151,0h-11.1a3.256,3.256,0,0,1-6.442,0Zm14.04-7.98a.509.509,0,0,1,0,1.018H6.151a.509.509,0,1,1,0-1.018Zm0-2.955a.509.509,0,0,1,0,1.018H10.23a.509.509,0,0,1,0-1.018Zm0-2.955a.509.509,0,0,1,0,1.018H14.108a.509.509,0,0,1,0-1.018ZM29.443,18.68h.126a1.26,1.26,0,0,0,1.256-1.256V13.049q0-.162-.014-.315h-5.6a.509.509,0,0,1-.509-.509v-5.4H22.537V18.68h.482a3.257,3.257,0,0,1,6.425,0Zm-18.529,0h10.6V3.837A1.19,1.19,0,0,0,20.332,2.65H2.57A1.257,1.257,0,0,0,1.314,3.906V17.424A1.261,1.261,0,0,0,2.57,18.68H4.49a3.257,3.257,0,0,1,6.425,0ZM9.285,17.634a2.239,2.239,0,1,0,.656,1.583,2.232,2.232,0,0,0-.656-1.583Zm18.529,0a2.24,2.24,0,1,0,.655,1.583,2.233,2.233,0,0,0-.655-1.583Zm2.7-5.917c-.035-.07-.073-.139-.115-.209L28.121,7.656a1.64,1.64,0,0,0-1.461-.831h-.944v4.892Z" transform="translate(0 0)"/></g></svg>');
+  line-height: 0;
+}
+
+.product-description {
+  width: 1500px;
+  max-width: 100%;
+  margin: 80px auto 0 auto;
+}
+
+.product-description .row {
+  display: grid;
+  align-items: center;
+  gap: 30px;
+}
+
+.product-description .row.col-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.product-description .title {
+  font-size: 3em;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.product-description p {
+  max-width: 650px;
+}
+
+.product-description .list {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.product-description .list .title {
+  margin-bottom: 3rem;
+}
+
+.product-description .list ol {
+  counter-reset: item;
+  list-style: none;
+  padding-left: 0;
+}
+.product-description .list ol li {
+  counter-increment: item;
+  margin-bottom: 2em;
+  font-size: 1.5em;
+}
+.product-description .list ol li::before {
+  content: "0" counter(item);
+  margin-right: 1em;
+  color: var(--primary);
+  font-family: 'Cabin';
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.product-characteristics {
+  width: 1500px;
+  max-width: 100%;
+  margin: 200px auto 0 auto;
+}
+
+.product-characteristics .title {
+  font-size: 2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.product-characteristics ul {
+  list-style-type: '- ';
+  line-height: 1.5rem;
+}
+
+.product-accordion-wrapper {
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr 5fr;
+  gap: 30px;
+}
+
+.product-accordion-wrapper .accordion {
+  grid-column: 2 / 3;
+}
+
+.product-accordion-wrapper img {
+  grid-column: 4 / 5;
+}
+
+.product-accordion-wrapper .accordion details + details {
+  margin-top: 4rem;
+} 
+
+.product-accordion-wrapper .accordion summary {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 1rem 0;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-accordion-wrapper .accordion summary::after {
+  content: '';
+  width: 17px;
+  height: 9px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16.17" height="8.733" viewBox="0 0 16.17 8.733"><g id="Groupe_173532" data-name="Groupe 173532" transform="translate(16.17) rotate(90)"><path id="Tracé_19" data-name="Tracé 19" d="M8.548,7.641,1.07.183a.627.627,0,0,0-.885.888L7.218,8.085.184,15.1a.627.627,0,0,0,.885.887L8.548,8.529a.626.626,0,0,0,0-.887Z" transform="translate(0 0)"/></g></svg>');
+  background-position: center center;
+  background-repeat: no-repeat;
+  rotate: 180deg;
+}
+
+.product-accordion-wrapper .accordion details[open] summary::after {
+  rotate: 0deg;
+}
+
+.product-review {
+  width: 1500px;
+  max-width: 100%;
+  margin: 200px auto 0 auto;
+}
+
+.product-review img {
+  width: 100%;
+}
+
+.product-review .btn {
+  margin-top: 2em;
+}
+
+.product-size-guide {
+  width: 1500px;
+  max-width: 100%;
+  margin: 200px auto 0 auto;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 4px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.product-size-guide .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.product-size-guide .title {
+  font-size: 2em;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.product-size-guide .btn {
+  margin-top: 1.5rem;
+}
+
+.product-size-guide .btn:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.product-featured {
+  margin-top: 200px;
+  border-top: 1px solid #C9C9C9;
+  border-bottom: 1px solid #C9C9C9;
+  padding: 60px 0;
+  background-color: #F2F2F2;
+}
+
+.product-featured .wrapper {
+  width: 1500px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.product-featured .title {
+  font-size: 3.5em;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.product-featured .swiper-pagination-bullet {
+  background-color: white;
+}
+
+.product-featured .swiper-pagination-bullet-active {
+  background-color: black;
+}
+
+.product-miniature .tags {
+  display: flex;
+  gap: 8px;
+  margin-top: 1em;
+}
+
+.product-miniature .tag {
+  font-family: 'Cabin';
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border: 1px solid;
+}
+
+.product-miniature .tag.red {
+  color: white;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.product-miniature .tag.new {
+  border-color: transparent;
+}
+
+.product-miniature .title {
+  font-family: 'Mulish';
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-miniature .price .current-price {
+  font-size: 1.25em;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.product-miniature .price .original-price {
+  font-size: 1.2em;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.product-miniature .price.discounted .original-price {
+  text-decoration: line-through;
+}
+
+.product-miniature .price .discount {
+  margin-top: 0.5em;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.product-miniature .review-stars {
+  text-decoration: none;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: black;
+  margin-top: 0.5rem;
+}
+
+.product-combination .wrapper {
+  margin-top: 140px;
+  padding: 150px 150px 0 150px;
+  background-image: url('/img/combination.jpg');
+  background-size: cover;
+  background-position: center center;
+  padding-bottom: 400px;
+}
+
+.product-combination .wrapper .title {
+  font-size: 5em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+.product-combination .wrapper .description {
+  color: white;
+  margin-bottom: 3.5em;
+  font-weight: 700;
+  max-width: 450px;
+}
+
+.product-combination .product-wrapper {
+  margin-top: -400px;
+  padding: 0 150px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.newsletter {
+  margin-top: 130px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="470" viewBox="0 0 1920 470"><defs><clipPath id="clip-path"><rect id="Rectangle_2456" data-name="Rectangle 2456" width="1920" height="470" transform="translate(0 11009)" fill="%23fff" stroke="%23707070" stroke-width="1"/></clipPath></defs><g id="Groupe_de_masques_24" data-name="Groupe de masques 24" transform="translate(0 -11009)" clip-path="url(%23clip-path)"><path id="Union_9" data-name="Union 9" d="M2147.021,2478.8l132.131-365.254c13.172-36.378,24.509-58.521,58.517-58.521h63.247l-132.143,365.254c-13.173,36.379-24.509,58.521-58.5,58.521Zm-501.043-.113c-18.234,0-35.78-3.028-51.809-11.73-26.676-14.515-38.9-38.566-39.8-69.887-.574-19.6,5.865-37.874,11.884-56.289,18.452-56.291,41.468-121.989,59.843-178.315l.05-.152c23.157-67.807,84.223-109.912,159.343-109.912h.293l296.625.061c18.235,0,35.806,3.046,51.809,11.748,26.675,14.515,38.9,38.563,39.8,69.887.574,19.588-5.865,37.876-11.884,56.276-18.337,55.958-58.912,177.855-58.912,177.855-16.131,46.9-50.279,81.566-94.629,98.655a181.529,181.529,0,0,1-65.683,11.879Zm68.361-296.68-60.863,176.025c-7.128,24.343,14.167,48.518,38.012,48.518l189.066-.011c15.723.011,61.169-2.388,61.169-2.388,38.8-4.192,60.85-25.8,75.553-60.33l5.419-14,57.025-166.177c7.128-24.344-14.2-49.019-38.05-49.019H1812.051C1765.925,2114.627,1728.586,2140.335,1714.338,2182.01Zm-282.458,296.107a144.818,144.818,0,0,1-62.163-14.352l-202.085-148.374a19.726,19.726,0,0,0-11.617-3.887H1129.99a5.341,5.341,0,0,0-5.088,3.5l-59.651,163.176H959.682l136.2-366.461c13.184-36.377,24.521-58.526,58.516-58.526h66.231l-.038.04-65.453,178.214a3.576,3.576,0,0,0,3.367,4.667h33.179a8.262,8.262,0,0,0,4.029-1.052l302.35-168.078c18.821-9.34,40.09-14.532,59.792-14.544l90.765-.076-358.227,224.956c-5.483,3.455-5.7,11.45-.434,15.926l217.859,184.934Zm-654.188,0c-21.142-.014-42.858-7.95-62.177-14.352L287.706,2314.743a45.67,45.67,0,0,1-10.762-6.575,55.265,55.265,0,0,1-20.81-39.355,49.537,49.537,0,0,1,6.031-27.859l2.627-4.124c4.719-6.761,11.107-12.51,24.317-22.749,62.686-42.3,134.464-84.938,197.979-125.88,42.96-27.694,91.249-40.128,143.62-39.681H915.83c64.649-.01,105.645,25.866,91.86,64.484l-15.658,42.208c-13.4,35.41-29.469,57.314-62.712,70.384-23,9.047-47.243,13.582-72.147,15.092-17.686,1.058-44.8,1.317-62.61,1.329-92.945.127-294.29.063-296.395.063l88.751-45.392c2.831-1.836,9.729-2.939,17.7-2.939,75.692,0,115.846.052,191.539,0,1.773-.008,3.558,0,5.343,0,26.548.052,52.893.106,71.536-19.088,7.587-7.8,17.125-20.909,25.936-34.569,6.848-10.62,15.378-24.459,5.305-31.716-8.493-6.136-14.831-5.865-23.591-6.261-5.751-.269-18.961-.473-24.7-.473-75.349-.065-140.916-.3-215.615.14-16.819.1-33.574,1.864-50.139,4.037-18.986,2.48-36.214,9.978-52,20.458l-129.057,78.869c-20.811,13.343-28.36,36.142-5.968,50.9,16.641,10.979,473.666,222.117,473.666,222.117Zm1653.456-461.607h-.013q-18.649-.041-37.285-.027a20.4,20.4,0,0,1-7.383-1.186c-3.774-1.469-5.458-3.937-5.509-7.132-.012-1.992.957-3.861,1.875-5.75,2.806-5.738,6.287-12.437,9.079-18.186v-.012c3.52-6.911,12.381-11.216,23.145-11.216l61.206.086-16.615,32.127c-3.557,6.965-12.5,11.3-23.323,11.3Zm-107.762,0h-.013q-18.649-.041-37.285-.027a20.405,20.405,0,0,1-7.383-1.186c-3.774-1.469-5.47-3.937-5.509-7.132-.012-1.992.957-3.861,1.875-5.75,2.805-5.738,6.286-12.437,9.079-18.186v-.012c3.52-6.911,12.382-11.216,23.131-11.216l61.208.086-16.6,32.127c-3.557,6.965-12.5,11.3-23.322,11.3Z" transform="translate(-518.132 9052.197)" fill="%23f2f2f2" opacity="0.089"/></g></svg>');
+  background-color: black;
+  color: white;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.newsletter .wrapper {
+  width: 1500px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: 5fr 1fr 4fr;
+  gap: 30px;
+  align-items: flex-end;
+}
+
+.newsletter .content .title {
+  font-size: 3.5em;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.newsletter .form {
+  grid-column: 3 / 4;
+}
+
+.newsletter .form .title {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter .form .description {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.newsletter .form input {
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid white;
+  background-color: white;
+  margin-bottom: 1em;
+}

@@ -1,0 +1,21 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+product_list:
+    path: /products
+    controller: App\Controller\ProductController::list
+
+product_show:
+    path: /{code}
+    controller: App\Controller\ProductController::show
+    requirements:
+        id: '\d+'
+        slug: '[a-zA-Z0-9-]+'
+    methods: [GET]
+
+product_index:
+    path: /product/index
+    controller: App\Controller\ProductController::productReference
