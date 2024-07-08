@@ -203,6 +203,10 @@ button {
   border-bottom: 1px solid;
 }
 
+.header {
+  position: relative;
+}
+
 .header .top {
   background-color: #F4F4F4;
   font-size: 0.875em;
@@ -251,7 +255,7 @@ button {
   grid-template-columns: 1fr 2fr 1fr;
   gap: 30px;
   align-items: center;
-  padding: 30px;
+  padding: 0 30px;
   width: 1800px;
   max-width: 100%;
   margin: 0 auto;
@@ -272,6 +276,146 @@ button {
 .header nav a {
   color: black;
   text-decoration: none;
+  padding: 45px 0;
+  display: block;
+}
+
+.header nav .picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header nav .submenu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
+
+.header nav li:hover .submenu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header nav .submenu ul {
+  display: block;
+}
+
+.header nav .submenu .level-1 > ul {
+  margin-left: -35px;
+}
+
+.header nav .submenu ul li + li::before {
+  content: '';
+  display: block;
+  width: calc(100% - 70px);
+  height: 1px;
+  background-color: white;
+  margin: 0 auto;
+}
+
+.header nav .submenu .level-1 > ul > li > a {
+  padding: 25px 35px;
+}
+
+.header nav .submenu .level-2 > ul > li a {
+  padding: 25px 0;
+}
+
+.header nav .submenu .level-1 {
+  background-color: var(--primary);
+  color: white;
+  position: relative;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  padding-right: 0;
+  padding-left: calc((100vw - 1300px) / 2 + 30px);
+}
+
+.header nav .submenu .level-1 .title {
+  display: block;
+  font-size: 3.2rem;
+  font-weight: 700;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 2.5rem;
+}
+
+.header nav .submenu .level-1 a {
+  color: white;
+}
+
+.header nav .submenu .level-2 {
+  opacity: 0;
+  visibility: hidden;
+  background-color: #F2F2F2;
+  color: black;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50%;
+  height: 100%;
+  padding: 90px 0 90px 70px;
+}
+
+.header nav .submenu .level-2 .title {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 2.5rem;
+  color: var(--primary);
+}
+
+.header nav .submenu .level-2 ul li + li::before {
+  background-color: #C9C9C9;
+  width: 100%;
+}
+
+.header nav .submenu .level-2 a {
+  color: black;
+}
+
+.header nav .submenu .level-3 {
+  opacity: 0;
+  visibility: hidden;
+  background-color: #FAFAFA;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 200%;
+  height: 100%;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  padding-left: 70px;
+  padding-right: calc((100vw - 1300px) / 2 + 30px);
+}
+
+.header nav .submenu .level-3 .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Cabin', sans-serif;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.header nav .submenu .level-1 > ul > li ,
+.header nav .submenu .level-2 > ul > li {
+  padding-right: 70px;
+}
+
+.header nav .submenu .level-1 ul li:hover .level-2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header nav .submenu .level-2 ul li:hover .level-3 {
+  opacity: 1;
+  visibility: visible;
 }
 
 .header .right {
