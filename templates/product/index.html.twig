@@ -13,13 +13,19 @@
 {% block body %}
   <div class="container">
     <div class="product-header">
-      <div class="gallery">
-        <img src="/img/product-1.jpg" alt="">
-        <img src="/img/product-2.jpg" alt="">
-        <img src="/img/product-3.jpg" alt="">
-        <img src="/img/product-4.jpg" alt="">
-        <img src="/img/product-5.jpg" alt="">
-        <img src="/img/product-6.jpg" alt="">
+      <div class="swiper gallery-slider">
+        <div class="swiper-wrapper gallery">
+          <img class="swiper-slide" src="/img/product-1.jpg" alt="">
+          <img class="swiper-slide" src="/img/product-2.jpg" alt="">
+          <img class="swiper-slide" src="/img/product-3.jpg" alt="">
+          <img class="swiper-slide" src="/img/product-4.jpg" alt="">
+          <img class="swiper-slide" src="/img/product-5.jpg" alt="">
+          <img class="swiper-slide" src="/img/product-6.jpg" alt="">
+        </div>
+        <div class="swiper-nav">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
       </div>
       <div class="content">
         <h1 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h1>
@@ -82,7 +88,7 @@
         </div>
         <img src="/img/description-3.jpg" alt="">
       </div>
-      <div>
+      <div class="row">
         <h2 class="title">Peau EKOÏ 3D GEL</h2>
         <p>3 densités de gel et 3 largeurs de peau adaptées à votre poids.</p>
         <img src="/img/description-4.jpg" alt="">
@@ -191,8 +197,8 @@
         <div>
           <h2 class="title">Guide des tailles</h2>
           <p>Quelle taille me convient le mieux ?</p>
-          <a href="" class="btn btn-outline">Commencer</a>
         </div>
+        <a href="" class="btn btn-outline">Commencer</a>
       </div>
       <img src="/img/size-guide.jpg" alt="">
     </div>
@@ -326,72 +332,85 @@
       <div class="wrapper">
         <h2 class="title">Équipez-vous<br> Avec toute la tenue</h2>
         <p class="description">Le cuissard de vélo fait partie de l’équipement indispensable de tous les cyclistes qui pratiquent le vélo de route.</p>
+        <div class="swiper combination-slider">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="product-miniature">
+              <img src="/img/miniature.jpg" alt="">
+              <div class="tags">
+                <span class="tag red">Racing</span>
+                <span class="tag new">New</span>
+                <span class="tag">8h</span>
+                <span class="tag">Anti-abrasion</span>
+                <span class="tag">Court</span>
+              </div>
+              <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
+              <div class="price discounted">
+                <div class="current-price">93,49 €</div>
+                <div class="original-price">169,99 €</div>
+                <div class="discount">45% de réduction</div>
+              </div>
+              <a class="review-stars" href="#review">
+                <img src="/img/star-review.svg" alt="">
+                <span>(43)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-nav">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>          
+          <div class="swiper-button-next"></div>
+        </div>
       </div>
-      <div class="product-wrapper">
-        <div class="product-miniature">
-          <img src="/img/miniature.jpg" alt="">
-          <div class="tags">
-            <span class="tag red">Racing</span>
-            <span class="tag new">New</span>
-            <span class="tag">8h</span>
-            <span class="tag">Anti-abrasion</span>
-            <span class="tag">Court</span>
-          </div>
-          <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
-          <div class="price discounted">
-            <div class="current-price">93,49 €</div>
-            <div class="original-price">169,99 €</div>
-            <div class="discount">45% de réduction</div>
-          </div>
-          <a class="review-stars" href="#review">
-            <img src="/img/star-review.svg" alt="">
-            <span>(43)</span>
-          </a>
-        </div>
-        <div class="product-miniature">
-          <img src="/img/miniature.jpg" alt="">
-          <div class="tags">
-            <span class="tag red">Racing</span>
-            <span class="tag new">New</span>
-            <span class="tag">8h</span>
-            <span class="tag">Anti-abrasion</span>
-            <span class="tag">Court</span>
-          </div>
-          <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
-          <div class="price discounted">
-            <div class="current-price">93,49 €</div>
-            <div class="original-price">169,99 €</div>
-            <div class="discount">45% de réduction</div>
-          </div>
-          <a class="review-stars" href="#review">
-            <img src="/img/star-review.svg" alt="">
-            <span>(43)</span>
-          </a>
-        </div>
-        <div class="product-miniature">
-          <img src="/img/miniature.jpg" alt="">
-          <div class="tags">
-            <span class="tag red">Racing</span>
-            <span class="tag new">New</span>
-            <span class="tag">8h</span>
-            <span class="tag">Anti-abrasion</span>
-            <span class="tag">Court</span>
-          </div>
-          <h3 class="title">Cuissard EKOI 3D GEL PERF HEXA Noir</h3>
-          <div class="price discounted">
-            <div class="current-price">93,49 €</div>
-            <div class="original-price">169,99 €</div>
-            <div class="discount">45% de réduction</div>
-          </div>
-          <a class="review-stars" href="#review">
-            <img src="/img/star-review.svg" alt="">
-            <span>(43)</span>
-          </a>
-        </div>
       </div>
     </div>
   </div>
-  <div class="newsletter">
+  {# <div class="newsletter">
     <div class="wrapper">
       <div class="content">
         <h2 class="title">Notre métier, vous équipez de la tête au pied avec des produits de qualité à des coûts maîtrisés.</h2>
@@ -406,14 +425,62 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> #}
   
 
   <script>
+    if(window.matchMedia('(max-width: 1024px)').matches) {
+      const gallerySlider = new Swiper('.gallery-slider', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 15,
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    }
+
     const characteristicsSlider = new Swiper('.characteristics-slider', {
       loop: true,
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 30,
+      breakpoints: {
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      autoplay: {
+        delay: 5000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    const combinationSlider = new Swiper('.combination-slider', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      breakpoints: {
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -429,7 +496,15 @@
 
     const featuredSlider = new Swiper('.featured-slider', {
       loop: true,
-      slidesPerView: 3.5,
+      slidesPerView: 1.75,
+      breakpoints: {
+        768: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      },
       spaceBetween: 30,
       pagination: {
         el: '.swiper-pagination',
@@ -442,6 +517,13 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const combinationProduct = document.querySelector(".product-combination .combination-slider");
+      const combinationProductHeight = combinationProduct.offsetHeight;
+      combinationProduct.closest('.wrapper').style.marginBottom = `${combinationProductHeight / 2}px`;
+      combinationProduct.style.marginTop = `${combinationProductHeight / -2}px`;
     });
   </script>
 {% endblock %}

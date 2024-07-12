@@ -8,80 +8,95 @@
     </div>
   </div>
   <div class="wrapper">
-    <img src="/img/logo/ekoi.svg" alt="">
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Offres du moment</a>
-        </li>
-        <li>
-          <a href="#">Homme</a>
-          <div class="submenu">
-            <div class="level-1">
-              <span class="title">Homme</span>
-              <ul>
-                <li>
-                  <a href="">En ce moment</a>
-                </li>
-                <li>
-                  <a href="">Produits</a>
-                  <div class="level-2">
-                    <span class="title">Produits</span>
-                    <ul>
-                      <li>
-                        <a href="">Vêtements</a>
-                        <div class="level-3">
-                          <span class="title">Vêtements</span>
-                          <ul>
-                            <li>
-                              <a href="">Vêtements</a>
-                            </li>
-                            <li>
-                              <a href="">Equipements</a>
-                            </li>
-                            <li>
-                              <a href="">Casques</a>
-                            </li>
-                          </ul>
-                        </div>
-                      </li>
-                      <li>
-                        <a href="">Equipements</a>
-                      </li>
-                      <li>
-                        <a href="">Casques</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <a href="">Disciplines</a>
-                </li>
-                <li>
-                  <a href="">Collaborations</a>
-                </li>
-              </ul>
+    <img src="/img/logo/ekoi.svg" alt="" class="logo">
+    <div class="menu">
+      <div class="inner">
+        <img src="/img/logo/ekoi.svg" alt="" class="logo">
+        <button class="selector fr" popovertarget="langselector">EUR € / France</button>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Offres du moment</a>
+          </li>
+          <li>
+            <a href="#">Homme</a>
+            <div class="submenu">
+              <div class="level-1">
+                <span class="title">Homme</span>
+                <ul>
+                  <li>
+                    <a href="">En ce moment</a>
+                  </li>
+                  <li>
+                    <a href="">Produits</a>
+                    <div class="level-2">
+                      <span class="title">Produits</span>
+                      <ul>
+                        <li>
+                          <a href="">Vêtements</a>
+                          <div class="level-3">
+                            <span class="title">Vêtements</span>
+                            <ul>
+                              <li>
+                                <a href="">Vêtements</a>
+                              </li>
+                              <li>
+                                <a href="">Equipements</a>
+                              </li>
+                              <li>
+                                <a href="">Casques</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </li>
+                        <li>
+                          <a href="">Equipements</a>
+                        </li>
+                        <li>
+                          <a href="">Casques</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="">Disciplines</a>
+                  </li>
+                  <li>
+                    <a href="">Collaborations</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="picture">
+                <img src="/img/submenu.jpg" alt="">
+              </div>
             </div>
-            <div class="picture">
-              <img src="/img/submenu.jpg" alt="">
-            </div>
-          </div>
-        </li>
-        <li>
-          <a href="#">Femme</a>
-        </li>
-        <li>
-          <a href="#">Ekoï Custom</a>
-        </li>
-      </ul>
-    </nav>
+          </li>
+          <li>
+            <a href="#">Femme</a>
+          </li>
+          <li>
+            <a href="#">Ekoï Custom</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
     <div class="right">
-      <button class="search">Rechercher un produit</button>
+      <button class="search">
+        <span class="label">Rechercher un produit</span>
+      </button>
       <a href="#" class="user"></a>
       <a href="#" class="cart"></a>
     </div>
   </div>
 </header>
+
+<div class="mobile-navbar">
+  <button class="search"></button>
+  <a href="#" class="user"></a>
+  <a href="#" class="cart"></a>
+  <button class="menu-toggle"></button>
+</div>
 
 <div class="langselector" id="langselector" popover>
   <span class="title">Préférences</span>

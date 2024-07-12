@@ -4,6 +4,10 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
 product_list:
     path: /products
     controller: App\Controller\ProductController::list
