@@ -322,23 +322,7 @@ button {
 
 .header nav .submenu ul {
   display: block;
-}
-
-.header nav .submenu .level-1 > ul {
   margin-left: -35px;
-}
-
-.header nav .submenu ul li + li::before {
-  content: '';
-  display: block;
-  width: calc(100% - 70px);
-  height: 1px;
-  background-color: white;
-  margin: -1px auto 0 auto;
-}
-
-.header nav .submenu .level-1 > ul > li:hover::before {
-  background-color: transparent;
 }
 
 .header nav .submenu .level-1 > ul > li > a {
@@ -348,26 +332,25 @@ button {
   justify-content: space-between;
 }
 
-.header nav .submenu .level-1 > ul > li > a::after {
-  content: url('data:image/svg+xml,<svg id="next" xmlns="http://www.w3.org/2000/svg" width="6.729" height="12.459" viewBox="0 0 6.729 12.459"><g id="Groupe_7" data-name="Groupe 7" transform="translate(0 0)"><path id="Tracé_19" data-name="Tracé 19" d="M6.587,5.887.824.141A.483.483,0,0,0,.142.825l5.419,5.4-5.42,5.4a.483.483,0,0,0,.682.684L6.587,6.571a.483.483,0,0,0,0-.684Z" transform="translate(0 0)" fill="%23fff"/></g></svg>');
+.header nav .submenu a::after {
+  content: url('data:image/svg+xml,<svg id="next" xmlns="http://www.w3.org/2000/svg" width="6.729" height="12.459" viewBox="0 0 6.729 12.459"><g id="Groupe_7" data-name="Groupe 7" transform="translate(0 0)"><path id="Tracé_19" data-name="Tracé 19" d="M6.587,5.887.824.141A.483.483,0,0,0,.142.825l5.419,5.4-5.42,5.4a.483.483,0,0,0,.682.684L6.587,6.571a.483.483,0,0,0,0-.684Z" transform="translate(0)" fill="%230b0b0b"/></g></svg>');
+}
+
+.header nav .submenu a:hover {
+  font-weight: 700;
 }
 
 .header nav .submenu .level-1 > ul > li > a:hover {
-  color: var(--primary);
-  background-color: white;
-}
-
-.header nav .submenu .level-1 > ul > li > a:hover::after {
-  content: url('data:image/svg+xml,<svg id="next" xmlns="http://www.w3.org/2000/svg" width="6.729" height="12.459" viewBox="0 0 6.729 12.459"><g id="Groupe_7" data-name="Groupe 7" transform="translate(0 0)"><path id="Tracé_19" data-name="Tracé 19" d="M6.587,5.887.824.141A.483.483,0,0,0,.142.825l5.419,5.4-5.42,5.4a.483.483,0,0,0,.682.684L6.587,6.571a.483.483,0,0,0,0-.684Z" transform="translate(0 0)" fill="%23dd122b"/></g></svg>');
+  background-color: #F2F2F2;
 }
 
 .header nav .submenu .level-2 > ul > li a {
-  padding: 25px 0;
+  padding: 25px 35px;
 }
 
 .header nav .submenu .level-1 {
-  background-color: var(--primary);
-  color: white;
+  background-color: white;
+  color: black;
   position: relative;
   padding-top: 90px;
   padding-bottom: 90px;
@@ -381,10 +364,6 @@ button {
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
   margin-bottom: 2.5rem;
-}
-
-.header nav .submenu .level-1 a {
-  color: white;
 }
 
 .header nav .submenu .level-2 {
@@ -406,12 +385,6 @@ button {
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
   margin-bottom: 2.5rem;
-  color: var(--primary);
-}
-
-.header nav .submenu .level-2 ul li + li::before {
-  background-color: #C9C9C9;
-  width: 100%;
 }
 
 .header nav .submenu .level-2 a {
@@ -421,18 +394,9 @@ button {
   justify-content: space-between;
 }
 
-.header nav .submenu .level-2 a::after {
-  content: url('data:image/svg+xml,<svg id="next" xmlns="http://www.w3.org/2000/svg" width="6.729" height="12.459" viewBox="0 0 6.729 12.459"><g id="Groupe_7" data-name="Groupe 7" transform="translate(0 0)"><path id="Tracé_19" data-name="Tracé 19" d="M6.587,5.887.824.141A.483.483,0,0,0,.142.825l5.419,5.4-5.42,5.4a.483.483,0,0,0,.682.684L6.587,6.571a.483.483,0,0,0,0-.684Z" transform="translate(0)" fill="%230b0b0b"/></g></svg>');
-}
-
 .header nav .submenu .level-2 a:hover {
-  color: var(--primary);
+  background-color: #DEDEDE;
 }
-
-.header nav .submenu .level-2 a:hover::after {
-  content: url('data:image/svg+xml,<svg id="next" xmlns="http://www.w3.org/2000/svg" width="6.729" height="12.459" viewBox="0 0 6.729 12.459"><g id="Groupe_7" data-name="Groupe 7" transform="translate(0 0)"><path id="Tracé_19" data-name="Tracé 19" d="M6.587,5.887.824.141A.483.483,0,0,0,.142.825l5.419,5.4-5.42,5.4a.483.483,0,0,0,.682.684L6.587,6.571a.483.483,0,0,0,0-.684Z" transform="translate(0 0)" fill="%23dd122b"/></g></svg>');
-}
-
 .header nav .submenu .level-3 {
   opacity: 0;
   pointer-events: none;
@@ -454,12 +418,14 @@ button {
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
   margin-bottom: 2rem;
-  color: var(--primary);
 }
 
-.header nav .submenu .level-1 > ul > li ,
-.header nav .submenu .level-2 > ul > li {
+.header nav .submenu .level-1 > ul > li {
   padding-right: 70px;
+}
+
+.header nav .submenu .level-2 > ul > li {
+  padding-right: 40px;
 }
 
 .header nav .submenu .level-1 ul li:hover .level-2 {
