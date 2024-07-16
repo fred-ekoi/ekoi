@@ -609,6 +609,10 @@ button {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24.105" viewBox="0 0 24 24.105"><g id="Groupe_10859" data-name="Groupe 10859" transform="translate(-327 -655.25)"><path id="Ligne_95" data-name="Ligne 95" d="M24,1.118H0V-.75H24Z" transform="translate(327 656)" fill="%23fff"/><path id="Ligne_96" data-name="Ligne 96" d="M24,1.118H0V-.75H24Z" transform="translate(327 667.119)" fill="%23fff"/><path id="Ligne_97" data-name="Ligne 97" d="M24,1.118H0V-.75H24Z" transform="translate(327 678.237)" fill="%23fff"/></g></svg>');
 }
 
+.mobile-navbar .menu-toggle.active {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18.293" height="18.294" viewBox="0 0 18.293 18.294"><g id="Groupe_10915" data-name="Groupe 10915" transform="translate(-352.853 -40.999)"><path id="Ligne_97" data-name="Ligne 97" d="M24,1.118H0V-.75H24Z" transform="translate(353.385 58.5) rotate(-45)" fill="%23fff"/><path id="Ligne_97-2" data-name="Ligne 97" d="M24,0H0V1.869H24Z" transform="translate(369.824 59.293) rotate(-135)" fill="%23fff"/></g></svg>');
+}
+
 @media (min-width: 1025px) {
   .header .menu .logo,
   .header .menu .selector,
@@ -656,18 +660,19 @@ button {
     width: 100%;
     height: 100%;
     background-color: white;
-    opacity: 0;
-    pointer-events: none;
+    opacity: 1;
+    pointer-events: initial;
     transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 200;
     padding: 30px 0 100px 0;
     display: grid;
     grid-template-rows: auto 1fr;
+    translate: 0 100%;
+    transition: translate .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   .header .menu.active {
-    opacity: 1;
-    pointer-events: initial;
+    translate: 0 0;
   }
 
   .header .menu .inner {

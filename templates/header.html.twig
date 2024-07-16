@@ -9,7 +9,7 @@
   </div>
   <div class="wrapper">
     <img src="/img/logo/ekoi.svg" alt="" class="logo">
-    <div class="menu active">
+    <div class="menu">
       <div class="inner">
         <img src="/img/logo/ekoi.svg" alt="" class="logo">
         <button class="selector fr" popovertarget="langselector">EUR € / France</button>
@@ -128,7 +128,14 @@
   }
 
   if (window.matchMedia('(max-width: 1024px)').matches) {
+    let menuToggle = document.querySelector('.mobile-navbar .menu-toggle');
+    let menu = document.querySelector('.header .menu');
     let menuParents = document.querySelectorAll('.header nav ul li.parent');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
 
     menuParents.forEach(parent => {
       let back = parent.querySelector('.back');
