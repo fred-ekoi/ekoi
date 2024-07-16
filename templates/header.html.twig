@@ -9,7 +9,7 @@
   </div>
   <div class="wrapper">
     <img src="/img/logo/ekoi.svg" alt="" class="logo">
-    <div class="menu">
+    <div class="menu active">
       <div class="inner">
         <img src="/img/logo/ekoi.svg" alt="" class="logo">
         <button class="selector fr" popovertarget="langselector">EUR € / France</button>
@@ -19,23 +19,26 @@
           <li>
             <a href="#">Offres du moment</a>
           </li>
-          <li>
+          <li class="parent">
             <a href="#">Homme</a>
             <div class="submenu">
               <div class="level-1">
+                <span class="back">Retour</span>
                 <span class="title">Homme</span>
                 <ul>
                   <li>
                     <a href="">En ce moment</a>
                   </li>
-                  <li>
+                  <li class="parent">
                     <a href="">Produits</a>
                     <div class="level-2">
+                      <span class="back">Retour</span>
                       <span class="title">Produits</span>
                       <ul>
-                        <li>
+                        <li class="parent">
                           <a href="">Vêtements</a>
                           <div class="level-3">
+                            <span class="back">Retour</span>
                             <span class="title">Vêtements</span>
                             <ul>
                               <li>
@@ -116,3 +119,30 @@
     <button class="btn" type="submit">Mettre à jour les préférences</button>
   </form>
 </div>
+
+<script>
+  if (window.matchMedia('(min-width: 1025px)').matches) {
+    let header = document.querySelector('.header');
+    console.log(header.offsetHeight);
+    document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+  }
+
+  if (window.matchMedia('(max-width: 1024px)').matches) {
+    let menuParents = document.querySelectorAll('.header nav ul li.parent');
+
+    menuParents.forEach(parent => {
+      let back = parent.querySelector('.back');
+
+      parent.addEventListener('click', (e) => {
+        if (e.target == parent) {
+          e.preventDefault();
+          parent.classList.add('active');
+        }
+      });
+
+      back.addEventListener('click', () => {
+        parent.classList.remove('active');
+      });
+    });
+  }
+</script>
