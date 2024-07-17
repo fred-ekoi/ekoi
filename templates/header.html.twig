@@ -123,17 +123,17 @@
 <script>
   if (window.matchMedia('(min-width: 1025px)').matches) {
     let header = document.querySelector('.header');
-    console.log(header.offsetHeight);
     document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
   }
 
   if (window.matchMedia('(max-width: 1024px)').matches) {
+    let mobileNavbar = document.querySelector('.mobile-navbar');
     let menuToggle = document.querySelector('.mobile-navbar .menu-toggle');
     let menu = document.querySelector('.header .menu');
     let menuParents = document.querySelectorAll('.header nav ul li.parent');
 
     menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
+      mobileNavbar.classList.toggle('active');
       menu.classList.toggle('active');
     });
 
