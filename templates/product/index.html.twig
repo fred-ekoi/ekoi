@@ -422,17 +422,17 @@
   <script>
     if(window.matchMedia('(max-width: 1024px)').matches) {
       const gallerySlider = new Swiper('.gallery-slider', {
-      loop: true,
-      slidesPerView: 1,
-      spaceBetween: 15,
-      autoplay: {
-        delay: 5000,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 15,
+        autoplay: {
+          delay: 5000,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
     }
 
     const characteristicsSlider = new Swiper('.characteristics-slider', {

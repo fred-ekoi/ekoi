@@ -23,3 +23,11 @@ product_show:
 product_index:
     path: /product/index
     controller: App\Controller\ProductController::productReference
+
+category_filter:
+    path: /category/filter
+    controller: App\Controller\CategoryController::filter
+
+category_no_filter:
+    path: /category/no-filter
+    controller: App\Controller\CategoryController::noFilter

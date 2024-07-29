@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block stylesheets %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% endblock %}
+
+{% block body %}
+  <section class="category-header">
+    <div class="wrapper">
+      <ul class="breadcrumb">
+        <li>
+          <a href="#">Accueil</a>
+        </li>
+        <li>
+          <a href="#">Hommes</a>
+        </li>
+        <li>
+          <a href="#">Vêtements</a>
+        </li>
+        <li>Cuissards</li>
+      </ul>
+      <h1 class="title">Cuissards homme</h1>
+      <div class="description">
+        <p>Le cuissard de vélo fait partie de l’équipement indispensable de tous les cyclistes qui pratiquent le vélo de route.</p>
+      </div>
+      <a href="#products" class="btn btn-outline">Voir les cuissards</a>
+    </div>
+  </section>
+  <section class="category-range">
+    <div class="wrapper">
+      <h2 class="title">Quel type de cycliste êtes-vous ?</h2>
+      <div class="description">
+        <p>Afin de vous aider dans votre choix, nous vous proposons 3 gammes d’équipements selon votre niveau.</p>
+      </div>
+      <div class="swiper range-slider">
+        <div class="swiper-wrapper grid">
+          <div class="item racing swiper-slide">
+              <span class="range-label">Gamme</span>
+              <img class="range-ekoi-logo" src="/img/logo/ekoi-white.svg" alt="">
+              <h3 class="range-title red">Racing</h3>
+              <p class="range-description">POUR LES COMPÉTITEURS ET CYCLISTES CHEVRONNÉ(E)S.</p>
+          </div>
+          <div class="item perf swiper-slide">
+              <span class="range-label">Gamme</span>
+              <img class="range-ekoi-logo" src="/img/logo/ekoi-white.svg" alt="">
+              <h3 class="range-title grey">Perf</h3>
+              <p class="range-description">POUR LES CYCLOSPORTIF(VE)S ET COMPÉTITEURS</p>
+          </div>
+          <div class="item start swiper-slide">
+              <span class="range-label">Gamme</span>
+              <img class="range-ekoi-logo" src="/img/logo/ekoi-white.svg" alt="">
+              <h3 class="range-title black">Start</h3>
+              <p class="range-description">POUR LES DÉBUTANT(E)S ET PRATIQUANTS OCCASIONNELS</p>
+          </div>
+        </div>
+        <div class="swiper-nav">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="category-main">
+    <div class="filter-sidebar"></div>
+    <div class="product-list">
+      
+    </div>
+  </section>
+  <section class="category-description">
+    <div class="wrapper">
+      <div class="text">
+        <div class="title">Cuissards homme</div>
+        <p class="chapo">Le cuissard de vélo fait partie de l’équipement indispensable de tous les cyclistes qui pratiquent le vélo de route.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+      </div>
+      <div class="image">
+        <img src="/img/category-description-1.jpg" alt="">
+        <img src="/img/category-description-2.jpg" alt="">
+        <img src="/img/category-description-3.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <script>
+    if(window.matchMedia('(max-width: 1024px)').matches) {
+      const gallerySlider = new Swiper('.range-slider', {
+        slidesPerView: 1.2,
+        spaceBetween: 15,
+        autoplay: {
+          delay: 5000,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    }
+  </script>
+{% endblock %}
