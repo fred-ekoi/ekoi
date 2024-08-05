@@ -2696,7 +2696,7 @@ button {
   position: relative;
 }
 
-.cart-sidebar .close {
+.cart-sidebar-header .close {
   width: 36px;
   height: 36px;
   display: flex;
@@ -2814,9 +2814,9 @@ button {
 
 .cart-sidebar .body .cart-item {
   padding-top: 0;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #d9d9d9;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .cart-sidebar .body .cart-item:first-child {
@@ -3056,8 +3056,8 @@ ul.cart-items {
 
 .cart-sidebar .cart-sidebar-footer .featured-products .product-miniature .product-price-and-shipping,
 .product-line-grid .product-price {
-  font-size: 14px !important;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 800;
   color: black;
   -webkit-font-smoothing: auto;
 }
@@ -3079,19 +3079,19 @@ ul.cart-items {
   padding: 15px;
   font-size: 15px;
   line-height: 15px;
-  color: black;
+  color: white;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 10px;
   border-radius: 5px;
-  -webkit-font-smoothing: auto;
   text-transform: uppercase;
+  font-weight: 700;
+  background-color: var(--primary);
 }
 
 .cart-sidebar .cart-sidebar-footer a.btn:hover {
-  background-color: var(--primary);
-  color: black;
+  background-color: black;
 }
 
 .cart-sidebar .cart-sidebar-footer a.btn svg>g>path {
@@ -3240,9 +3240,8 @@ svg.shttGamification__iconCheck {
 }
 
 .cart-sidebar__title {
-  font-size: 25px;
-  margin-bottom: 0;
-  color: var(--primary);
+  font-size: 2rem;
+  margin: 0;
   font-weight: bold;
 }
 
@@ -3293,10 +3292,18 @@ p.shttGamification__title span {
 }
 
 .cart-sidebar .featured-products .title {
-  text-align: center;
   color: black !important;
   text-transform: none !important;
-  font-size: 20px !important;
+  font-size: 15px !important;
+}
+
+.cart-sidebar .featured-products .price .current-price,
+.cart-sidebar .featured-products .price .original-price {
+  font-size: 1rem;
+}
+
+.cart-sidebar .featured-products .review-stars {
+  font-size: 0.875rem;
 }
 
 .cart-sidebar .recommanded-products-title {
@@ -3314,25 +3321,52 @@ p.shttGamification__title span {
 
 /* footer */
 .cart-sidebar .disclaimer {
-  color: #777777;
-  font-size: 10px;
+  font-size: 0.75rem;
   text-align: center;
   line-height: 1.4em;
 }
 
-span.btn.btn-outline.close {
-  width: 100%;
-  height: auto;
-  font-size: 15px;
-  padding: 12px;
-  font-weight: 400;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 14px;
+.cart-sidebar .disclaimer a {
+  color: black;
 }
 
 .cart-sidebar .shttAttributesAvailable {
   display: none;
+}
+
+.cart-sidebar-footer .btn.close {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cart-sidebar-footer .btn.close:hover {
+  background-color: black;
+  color: white;
+  border-color: black;
+}
+
+.cart-sidebar-footer .subtotal {
+  padding: 15px 0;
+  border-top: 1px solid #707070;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.cart-sidebar-footer .subtotal .label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cart-sidebar-footer .subtotal .value {
+  font-weight: 800;
+  line-height: 1;
 }
 
 /* ============================================================
@@ -3341,7 +3375,6 @@ span.btn.btn-outline.close {
 
 #cart .product-line-grid,
 .cart-sidebar .product-line-grid {
-  align-items: center;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 15px
@@ -3363,8 +3396,17 @@ span.btn.btn-outline.close {
 
 #cart .product-line-info a.label,
 .cart-sidebar .product-line-info a.label {
-  font-size: 16px;
+  font-size: 0.875rem;
+  font-weight: 700;
   text-decoration: none;
+}
+
+#cart .product-line-info .option,
+.cart-sidebar .product-line-info .option {
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: block;
+  margin-top: 8px;
 }
 
 #cart .product-line-info .label,
@@ -3399,9 +3441,36 @@ span.btn.btn-outline.close {
   gap: 15px
 }
 
-#cart .product-line-grid-body .qty,
-.cart-sidebar .product-line-grid-body .qty {
-  margin: 0 30px 0 30px
+#cart .product-line-grid-body .qty .input-group,
+.cart-sidebar .product-line-grid-body .qty .input-group {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+
+#cart .product-line-grid-body .qty input,
+.cart-sidebar .product-line-grid-body .qty input {
+  padding: 0;
+  border: 0;
+  width: 1em;
+  text-align: center;
+}
+
+#cart .product-line-grid-body .qty input::-webkit-outer-spin-button,
+#cart .product-line-grid-body .qty input::-webkit-inner-spin-button,
+.cart-sidebar .product-line-grid-body .qty input::-webkit-outer-spin-button,
+.cart-sidebar .product-line-grid-body .qty input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+#cart .product-line-grid-body .qty input[type=number],
+.cart-sidebar .product-line-grid-body .qty input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
 
 #cart input.js-cart-line-product-quantity.form-control,
@@ -3486,4 +3555,9 @@ span.btn.btn-outline.close {
   font-size: 14px;
   color: #777;
   text-decoration: none;
+}
+
+.qty .input-group .quantity-remove,
+.qty .input-group .quantity-add {
+  cursor: pointer;
 }

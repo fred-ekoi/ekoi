@@ -83,13 +83,17 @@
 									<div class="product-line-info">
 										<a class="label" href="">Cuissard EKOI 3D GEL PERF HEXA Noir</a>
 									</div>
-									<div class="product-line-info">Couleur noir / Taille XS</div>
+									<div class="product-line-info">
+                    <span class="option">Couleur noir / Taille XS</span>
+                  </div>
 									<div
 										class="bottom">
 										<!-- product line quantity -->
 										<div class="qty">
 											<div class="input-group">
-												<input class="js-cart-line-product-quantity form-control" type="number" value="1" name="product-quantity-spin" style="display: block;">
+                        <span class="quantity-remove">-</span>
+												<input class="cart-line-product-quantity form-control" type="number" value="1" name="product-quantity-spin" style="display: block;">
+                        <span class="quantity-add">+</span>
 											</div>
 										</div>
 										<!--  product line right content: delete -->
@@ -105,9 +109,7 @@
 								class="cart-product-line-right">
 								<!-- product line price -->
 								<div class="product-line-grid-body price">
-									<span class="product-price">
-										<strong>3,30&nbsp;€</strong>
-									</span>
+									<span class="product-price">3,30&nbsp;€</span>
 								</div>
 							</div>
 						</div>
@@ -127,13 +129,17 @@
 									<div class="product-line-info">
 										<a class="label" href="">Cuissard EKOI 3D GEL PERF HEXA Noir</a>
 									</div>
-									<div class="product-line-info">Couleur noir / Taille XS</div>
+									<div class="product-line-info">
+                    <span class="option">Couleur noir / Taille XS</span>
+                  </div>
 									<div
 										class="bottom">
 										<!-- product line quantity -->
 										<div class="qty">
 											<div class="input-group">
-												<input class="js-cart-line-product-quantity form-control" type="number" value="1" name="product-quantity-spin" style="display: block;">
+                        <span class="quantity-remove">-</span>
+												<input class="cart-line-product-quantity form-control" type="number" value="1" name="product-quantity-spin" style="display: block;">
+                        <span class="quantity-add">+</span>
 											</div>
 										</div>
 										<!--  product line right content: delete -->
@@ -149,9 +155,7 @@
 								class="cart-product-line-right">
 								<!-- product line price -->
 								<div class="product-line-grid-body price">
-									<span class="product-price">
-										<strong>3,30&nbsp;€</strong>
-									</span>
+									<span class="product-price">3,30&nbsp;€</span>
 								</div>
 							</div>
 						</div>
@@ -208,11 +212,36 @@
 			</section>
 		</div>
 		<div class="cart-sidebar-footer">
+      <div class="subtotal">
+        <span class="label">Sous-total</span>
+        <span class="price">6,60&nbsp;€</span>
+      </div>
 			<div class="shttCart-disclaimer">
-				<span class="disclaimer">Les frais de livraison définitifs et tout code promo s’appliquent lors du paiement</span>
+				<span class="disclaimer">Taxes incluses. <a href="">Frais d’expédition</a> calculés à l’étape de paiement.</span>
 			</div>
 			<a class="btn btn-primary" href="">Voir mon panier</a>
 			<span class="btn btn-outline close">Continuer mes achats</span>
 		</div>
 	</div>
 </div>
+
+<script>
+  let quantityRemove = document.querySelectorAll('.qty .input-group .quantity-remove');
+  let quantityAdd = document.querySelectorAll('.qty .input-group .quantity-add');
+
+  quantityRemove.forEach(item => {
+    item.addEventListener('click', () => {
+      let number = item.nextElementSibling;
+      if (number.value > 1) {
+        number.value--;
+      }
+    })
+  });
+
+  quantityAdd.forEach(item => {
+    item.addEventListener('click', () => {
+      let number = item.previousElementSibling;
+      number.value++;
+    })
+  });
+</script>
