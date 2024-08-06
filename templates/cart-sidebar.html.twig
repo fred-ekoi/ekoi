@@ -226,6 +226,21 @@
 </div>
 
 <script>
+  let cartSidebar = document.querySelector('.cart-sidebar-wrapper');
+  let cartSidebarClose = document.querySelectorAll('.cart-sidebar .close');
+
+  cartSidebarClose.forEach(item => {
+    item.addEventListener('click', () => {
+      cartSidebar.classList.remove('active');
+    })
+  });
+
+  cartSidebar.addEventListener('click', (e) => {
+  if (e.target === cartSidebar) {
+    cartSidebar.classList.remove('active');
+  }
+  });
+
   let quantityRemove = document.querySelectorAll('.qty .input-group .quantity-remove');
   let quantityAdd = document.querySelectorAll('.qty .input-group .quantity-add');
 

@@ -626,18 +626,12 @@ combinationProductHeight / -2
 });
 
 let products = document.querySelectorAll('.product-miniature');
-let cartSidebar = document.querySelector('.cart-sidebar-wrapper');
+let productCartSidebar = document.querySelector('.cart-sidebar-wrapper');
 
 products.forEach(product => {
   product.addEventListener('click', () => {
-    cartSidebar.classList.toggle('active');
+    productCartSidebar.classList.toggle('active');
   });
-});
-
-cartSidebar.addEventListener('click', (e) => {
-  if (e.target === cartSidebar) {
-    cartSidebar.classList.remove('active');
-  }
 });
 	</script>
 {% endblock %}
