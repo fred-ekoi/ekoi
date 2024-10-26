@@ -1,0 +1,73 @@
+{# templates/product/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <h1 id="product-name">{{ product.name }}</h1>
+    <p id="product-description">{{ product.description }}</p>
+    {% if product.images is not empty %}
+        <img id="product-image" src="{{ product.images[0].path }}" alt="{{ product.name }}">
+    {% endif %}
+    <p id="product-price">{{ defaultVariant.price / 100 }} €</p>
+
+    {% if variants is not empty %}
+        <h2>Variants</h2>
+        <form id="variant-form">
+            {% for option in product.options %}
+                <label for="option-{{ option.code }}">{{ option.name }}</label>
+                <select id="option-{{ option.code }}" name="{{ option.code }}" class="variant-option">
+                    {% for value in option.values %}
+                        <option value="{{ value.code }}">{{ value.value }}</option>
+                    {% endfor %}
+                </select>
+            {% endfor %}
+        </form>
+    {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const variants = {{ variants|json_encode|raw }};
+            const defaultVariant = {{ defaultVariant|json_encode|raw }};
+
+            console.log('Variants:', variants);  // Log for debugging
+            console.log('Default Variant:', defaultVariant);  // Log for debugging
+
+            function updateProductInfo(variant) {
+                console.log('Updating product info with variant:', variant);  // Log for debugging
+                document.getElementById('product-name').textContent = variant.name;
+                document.getElementById('product-price').textContent = (variant.price / 100) + ' €';
+                // Add any other elements to be updated as needed
+            }
+
+            document.querySelectorAll('.variant-option').forEach(select => {
+                select.addEventListener('change', function() {
+                    const selectedOptions = {};
+                    document.querySelectorAll('.variant-option').forEach(opt => {
+                        selectedOptions[opt.name] = opt.value;
+                    });
+
+                    console.log('Selected options:', selectedOptions);  // Log for debugging
+
+                    const matchingVariant = variants.find(variant => {
+                        return Object.keys(selectedOptions).every(option => {
+                            return variant.optionValues.includes(selectedOptions[option]);
+                        });
+                    });
+
+                    console.log('Matching variant:', matchingVariant);  // Log for debugging
+
+                    if (matchingVariant) {
+                        updateProductInfo(matchingVariant);
+                    } else {
+                        updateProductInfo(defaultVariant);
+                    }
+                });
+            });
+
+            // Initial update with default variant
+            updateProductInfo(defaultVariant);
+        });
+    </script>
+{% endblock %}

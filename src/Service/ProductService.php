@@ -16,7 +16,7 @@ class ProductService
 
     public function getProducts(): array
     {
-        $response = $this->client->request('GET', 'http://localhost:8001/api/v2/shop/products');
+        $response = $this->client->request('GET', 'http://localhost/api/v2/shop/products');
 
         if ($response->getStatusCode() !== 200) {
             throw new \Exception('Failed to fetch products');
@@ -29,7 +29,7 @@ class ProductService
 
     public function getProduct(string $code): ?array
     {
-        $response = $this->client->request('GET', 'http://localhost:8001/api/v2/shop/products/' . $code);
+        $response = $this->client->request('GET', 'http://localhost/api/v2/shop/products/' . $code);
 
         if ($response->getStatusCode() !== 200) {
             return null;
@@ -47,7 +47,7 @@ class ProductService
         $options = [];
         foreach ($optionUrls as $optionUrl) {
             if (is_string($optionUrl) && strpos($optionUrl, 'http') !== 0) {
-                $optionUrl = 'http://localhost:8001' . $optionUrl;
+                $optionUrl = 'http://localhost' . $optionUrl;
             }
             $response = $this->client->request('GET', $optionUrl);
             if ($response->getStatusCode() === 200) {
@@ -64,7 +64,7 @@ class ProductService
         $values = [];
         foreach ($valueUrls as $valueUrl) {
             if (is_string($valueUrl) && strpos($valueUrl, 'http') !== 0) {
-                $valueUrl = 'http://localhost:8001' . $valueUrl;
+                $valueUrl = 'http://localhost' . $valueUrl;
             }
             $response = $this->client->request('GET', $valueUrl);
             if ($response->getStatusCode() === 200) {
@@ -84,7 +84,7 @@ class ProductService
         $variants = [];
         foreach ($variantUrls as $variantUrl) {
             // Construire l'URL complète si nécessaire
-            $variantUrl = strpos($variantUrl, 'http') !== 0 ? 'http://localhost:8001' . $variantUrl : $variantUrl;
+            $variantUrl = strpos($variantUrl, 'http') !== 0 ? 'http://localhost' . $variantUrl : $variantUrl;
 
             // Effectuer la requête HTTP pour obtenir les détails du variant
             $response = $this->client->request('GET', $variantUrl);
@@ -109,7 +109,7 @@ class ProductService
         $codes = [];
         foreach ($valueUrls as $valueUrl) {
             if (is_string($valueUrl) && strpos($valueUrl, 'http') !== 0) {
-                $valueUrl = 'http://localhost:8001' . $valueUrl;
+                $valueUrl = 'http://localhost' . $valueUrl;
             }
             $response = $this->client->request('GET', $valueUrl);
             if ($response->getStatusCode() === 200) {
@@ -123,7 +123,7 @@ class ProductService
     public function getVariant(string $variantUrl): ?array
     {
         if (strpos($variantUrl, 'http') !== 0) {
-            $variantUrl = 'http://localhost:8001' . $variantUrl;
+            $variantUrl = 'http://localhost' . $variantUrl;
         }
         $response = $this->client->request('GET', $variantUrl);
         if ($response->getStatusCode() !== 200) {
