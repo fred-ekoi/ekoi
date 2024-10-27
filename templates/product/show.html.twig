@@ -162,7 +162,16 @@
 			<h2 class="section-title">Caractéristiques</h2>
 			<div class="swiper characteristics-slider">
 				<div class="swiper-wrapper">
+				{% for feature in product.features %}
 					<div class="swiper-slide">
+						<div class="image">
+							<img src="http://localhost/media/{{ feature.image }}" alt="">
+						</div>
+						<h3 class="title">{{ feature.title }}</h3>
+						<p>{{ feature.description }}</p>
+					</div>
+				{% endfor %}
+					{# <div class="swiper-slide">
 						<div class="image">
 							<img src="/img/characteristic-1.jpg" alt="">
 						</div>
@@ -209,7 +218,7 @@
 							<li>Logos Ekoi gravés dans la fibre (discret et sans risque d’usure).</li>
 							<li>Motif hexagonal texturé</li>
 						</ul>
-					</div>
+					</div> #}
 				</div>
 				<div class="swiper-nav">
 					<div class="swiper-button-prev"></div>

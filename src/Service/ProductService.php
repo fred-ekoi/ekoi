@@ -142,4 +142,14 @@ class ProductService
 
         return $response->toArray();
     }
+
+    public function getProductFeatures(string $code, string $locale = 'fr_FR'): ?array
+    {
+        $response = $this->client->request('GET', 'http://localhost/api/v2/shop/product/' . $code . '/features/' . $locale);
+        if ($response->getStatusCode() !== 200) {
+            return null;
+        }
+
+        return $response->toArray();
+    }
 }

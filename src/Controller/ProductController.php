@@ -34,6 +34,8 @@ class ProductController extends AbstractController
     {
         $product = $this->productService->getProduct($code);
         $product['description'] = $this->productService->getProductDescription($product['id']);
+        $product['features'] = $this->productService->getProductFeatures($product['id']);
+        dump($product['features']);
 
         if (!$product) {
             throw $this->createNotFoundException('The product does not exist');
