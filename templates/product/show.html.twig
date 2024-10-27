@@ -10,8 +10,23 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 {% endblock %}
 
+{% macro render_block(block) %}
+    <div class="{{ block.alignment }} col-{{block.children|length}}">
+        {% for child in block.children %}
+            {% if child.type == 'image' %}
+                <img src="http://localhost/media/{{ child.image }}" alt="">
+            {% elseif child.type == 'text' %}
+                <div>{{ child.text }}</div>
+            {% elseif child.type == 'video' %}
+                {# Add video logic here if needed #}
+            {% elseif child.type == 'layout' and child.children|length > 0 %}
+                {{ _self.render_block(child) }}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endmacro %}
+
 {% block body %}
-{{ dump(product)}}
 	<div class="container">
 		<div class="product-header">
 			<div class="swiper gallery-slider">
@@ -100,7 +115,10 @@
 		</div>
 		<div class="product-description">
 			<h2 class="section-title">Description</h2>
-			<div class="row col-2">
+			{% for block in product.description %}
+				{{ _self.render_block(block) }}
+			{% endfor %}
+			{# <div class="row col-2">
 				<div>
 					<h2 class="title">FIBRE HEXA</h2>
 					<p>La nouvelle génération de cuissards EKOÏ PERF HEXA 3D GEL illustre parfaitement toutes les évolutions qui proviennent des cuissards portés par nos équipes pros route.</p>
@@ -138,7 +156,7 @@
 				<h2 class="title">Peau EKOÏ 3D GEL</h2>
 				<p>3 densités de gel et 3 largeurs de peau adaptées à votre poids.</p>
 				<img src="/img/description-4.jpg" alt="">
-			</div>
+			</div> #}
 		</div>
 		<div class="product-characteristics">
 			<h2 class="section-title">Caractéristiques</h2>
