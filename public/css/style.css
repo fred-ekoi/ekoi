@@ -1177,6 +1177,16 @@ button {
   font-size: 2rem;
 }
 
+.product-description img {
+  width: 100%;
+}
+
+.product-description video {
+  aspect-ratio: 16/9;
+  width: 100%;
+  margin-top: 2rem;
+}
+
 @media (max-width: 1199px) {
   .product-description .row+.row {
     margin-top: 60px;

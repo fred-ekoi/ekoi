@@ -16,71 +16,25 @@
       </div>
       <nav>
         <ul>
-          <li>
-            <a href="#">Offres du moment</a>
-          </li>
-          <li class="parent">
-            <a href="#">Homme</a>
-            <div class="submenu">
-              <div class="level-1">
-                <span class="back">Retour</span>
-                <span class="title">Homme</span>
-                <ul>
-                  <li>
-                    <a href="">En ce moment</a>
-                  </li>
-                  <li class="parent">
-                    <a href="">Produits</a>
-                    <div class="level-2">
-                      <span class="back">Retour</span>
-                      <span class="title">Produits</span>
-                      <ul>
-                        <li class="parent">
-                          <a href="">Vêtements</a>
-                          <div class="level-3">
-                            <span class="back">Retour</span>
-                            <span class="title">Vêtements</span>
-                            <ul>
-                              <li>
-                                <a href="">Vêtements</a>
-                              </li>
-                              <li>
-                                <a href="">Equipements</a>
-                              </li>
-                              <li>
-                                <a href="">Casques</a>
-                              </li>
-                            </ul>
-                          </div>
-                        </li>
-                        <li>
-                          <a href="">Equipements</a>
-                        </li>
-                        <li>
-                          <a href="">Casques</a>
-                        </li>
-                      </ul>
+          {% for item in menuData.items %}
+            <li {% if item.children is defined and item.children|length > 0 %}class="parent"{% endif %}>
+              <a href="{{ item.url|default('#') }}">{{ item.title }}</a>
+              {% if item.children is defined and item.children|length > 0 %}
+                <div class="submenu">
+                  <div class="level-1">
+                    <span class="back">Retour</span>
+                    <span class="title">{{ item.title }}</span>
+                    {% include '_menu_items.html.twig' with {'items': item.children, 'level': 2} %}
+                  </div>
+                  {% if item.image %}
+                    <div class="picture">
+                      <img src="http://localhost/media/image/{{ item.image }}" alt="">
                     </div>
-                  </li>
-                  <li>
-                    <a href="">Disciplines</a>
-                  </li>
-                  <li>
-                    <a href="">Collaborations</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="picture">
-                <img src="/img/submenu.jpg" alt="">
-              </div>
-            </div>
-          </li>
-          <li>
-            <a href="#">Femme</a>
-          </li>
-          <li>
-            <a href="#">Ekoï Custom</a>
-          </li>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </li>
+          {% endfor %}
         </ul>
       </nav>
     </div>

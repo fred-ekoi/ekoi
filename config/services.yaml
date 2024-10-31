@@ -25,3 +25,8 @@ services:
     App\Service\ProductService:
         arguments:
             $client: '@http_client'
+            $apiUrl: '%env(API_URL)%'
+    App\Service\HeaderService:
+        arguments:
+            $client: '@http_client'
+            $apiUrl: '%env(API_URL)%'

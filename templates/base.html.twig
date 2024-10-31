@@ -13,7 +13,8 @@
         {% endblock %}
     </head>
     <body>
-        {% include 'header.html.twig' %}
+        {# {% include 'header.html.twig' %} #}
+        {{ render_menu() }}
         {% include 'cart-sidebar.html.twig' %}
         {% block body %}
         {% endblock %}
