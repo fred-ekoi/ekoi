@@ -8,15 +8,17 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 class ProductService
 {
     private $client;
+    private $apiUrl;
 
-    public function __construct(HttpClientInterface $client)
+    public function __construct(HttpClientInterface $client, string $apiUrl)
     {
         $this->client = $client;
+        $this->apiUrl = $apiUrl;
     }
 
     public function getProducts(): array
     {
-        $response = $this->client->request('GET', 'http://localhost/api/v2/shop/products');
+        $response = $this->client->request('GET', $this->apiUrl . '/api/v2/shop/products');
 
         if ($response->getStatusCode() !== 200) {
             throw new \Exception('Failed to fetch products');
@@ -29,7 +31,7 @@ class ProductService
 
     public function getProduct(string $code): ?array
     {
-        $response = $this->client->request('GET', 'http://localhost/api/v2/shop/products/' . $code);
+        $response = $this->client->request('GET', $this->apiUrl . '/api/v2/shop/products/' . $code);
 
         if ($response->getStatusCode() !== 200) {
             return null;
@@ -38,6 +40,10 @@ class ProductService
         $product = $response->toArray();
         $product['options'] = $this->getProductOptions($product['options']);
         $product['variants'] = $this->getVariants($product['variants']);
+        $product['description'] = $this->getProductDescription($product['id']);
+        $product['features'] = $this->getProductFeatures($product['id']);
+        $product['attributes'] = $this->getAttributes($code);
+        $product['attributeImage'] = $this->getAttributeImage($product['id']);
 
         return $product;
     }
@@ -47,7 +53,7 @@ class ProductService
         $options = [];
         foreach ($optionUrls as $optionUrl) {
             if (is_string($optionUrl) && strpos($optionUrl, 'http') !== 0) {
-                $optionUrl = 'http://localhost' . $optionUrl;
+                $optionUrl = $this->apiUrl . $optionUrl;
             }
             $response = $this->client->request('GET', $optionUrl);
             if ($response->getStatusCode() === 200) {
@@ -64,7 +70,7 @@ class ProductService
         $values = [];
         foreach ($valueUrls as $valueUrl) {
             if (is_string($valueUrl) && strpos($valueUrl, 'http') !== 0) {
-                $valueUrl = 'http://localhost' . $valueUrl;
+                $valueUrl = $this->apiUrl . $valueUrl;
             }
             $response = $this->client->request('GET', $valueUrl);
             if ($response->getStatusCode() === 200) {
@@ -84,7 +90,7 @@ class ProductService
         $variants = [];
         foreach ($variantUrls as $variantUrl) {
             // Construire l'URL complète si nécessaire
-            $variantUrl = strpos($variantUrl, 'http') !== 0 ? 'http://localhost' . $variantUrl : $variantUrl;
+            $variantUrl = strpos($variantUrl, 'http') !== 0 ? $this->apiUrl . $variantUrl : $variantUrl;
 
             // Effectuer la requête HTTP pour obtenir les détails du variant
             $response = $this->client->request('GET', $variantUrl);
@@ -109,7 +115,7 @@ class ProductService
         $codes = [];
         foreach ($valueUrls as $valueUrl) {
             if (is_string($valueUrl) && strpos($valueUrl, 'http') !== 0) {
-                $valueUrl = 'http://localhost' . $valueUrl;
+                $valueUrl = $this->apiUrl . $valueUrl;
             }
             $response = $this->client->request('GET', $valueUrl);
             if ($response->getStatusCode() === 200) {
@@ -123,7 +129,7 @@ class ProductService
     public function getVariant(string $variantUrl): ?array
     {
         if (strpos($variantUrl, 'http') !== 0) {
-            $variantUrl = 'http://localhost' . $variantUrl;
+            $variantUrl = $this->apiUrl . $variantUrl;
         }
         $response = $this->client->request('GET', $variantUrl);
         if ($response->getStatusCode() !== 200) {
@@ -135,7 +141,7 @@ class ProductService
 
     public function getProductDescription(string $code, string $locale = 'fr_FR'): ?array
     {
-        $response = $this->client->request('GET', 'http://localhost/api/v2/shop/product/' . $code . '/description/' . $locale);
+        $response = $this->client->request('GET', $this->apiUrl . '/api/v2/shop/product/' . $code . '/description/' . $locale);
         if ($response->getStatusCode() !== 200) {
             return null;
         }
@@ -145,11 +151,33 @@ class ProductService
 
     public function getProductFeatures(string $code, string $locale = 'fr_FR'): ?array
     {
-        $response = $this->client->request('GET', 'http://localhost/api/v2/shop/product/' . $code . '/features/' . $locale);
+        $response = $this->client->request('GET', $this->apiUrl . '/api/v2/shop/product/' . $code . '/features/' . $locale);
         if ($response->getStatusCode() !== 200) {
             return null;
         }
 
         return $response->toArray();
+    }
+
+    public function getAttributes(string $code): ?array
+    {
+        $response = $this->client->request('GET', $this->apiUrl . '/api/v2/shop/products/' . $code . '/attributes');
+
+        if ($response->getStatusCode() !== 200) {
+            return null;
+        }
+
+        $data = $response->toArray();
+
+        return $data['hydra:member'] ?? [];
+    }
+
+    public function getAttributeImage(int $productId): ?string
+    {
+        $response = $this->client->request('GET', $this->apiUrl . '/api/v2/shop/product/' . $productId . '/attribute/image');
+        if ($response->getStatusCode() !== 200) {
+            return null;
+        }
+        return $response->toArray()['path'];
     }
 }

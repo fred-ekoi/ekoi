@@ -11,14 +11,21 @@
 {% endblock %}
 
 {% macro render_block(block) %}
-    <div class="{{ block.alignment }} col-{{block.children|length}}">
+    <div class="{{ block.alignment }} {% if block.alignment == "row" %}col-{{block.children|length}}{% endif %}">
         {% for child in block.children %}
             {% if child.type == 'image' %}
-                <img src="http://localhost/media/{{ child.image }}" alt="">
+                <img src="http://localhost/media/{{ child.content }}" alt="">
+            {% elseif child.type == 'title' %}
+                <h2 class="title">{{ child.content }}</h2>
+            {% elseif child.type == 'short_text' %}
+                <p>{{ child.content }}</p>
             {% elseif child.type == 'text' %}
-                <div>{{ child.text }}</div>
+                <div>{{ child.content|nl2br|raw }}</div>
             {% elseif child.type == 'video' %}
-                {# Add video logic here if needed #}
+                <video controls autoplay muted>
+                    <source src="http://localhost/media/{{ child.content }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             {% elseif child.type == 'layout' and child.children|length > 0 %}
                 {{ _self.render_block(child) }}
             {% endif %}
@@ -32,9 +39,9 @@
 			<div class="swiper gallery-slider">
 				{% if product.images is not empty %}
 					<div class="swiper-wrapper gallery">
-					{% for image in product.images %}
-						<img class="swiper-slide" src="{{ image.path }}" alt="">
-					{% endfor %}
+						{% for image in product.images %}
+							<img class="swiper-slide" src="{{ image.path }}" alt="">
+						{% endfor %}
 					</div>
     			{% endif %}
 				<div class="swiper-nav">
@@ -118,107 +125,20 @@
 			{% for block in product.description %}
 				{{ _self.render_block(block) }}
 			{% endfor %}
-			{# <div class="row col-2">
-				<div>
-					<h2 class="title">FIBRE HEXA</h2>
-					<p>La nouvelle génération de cuissards EKOÏ PERF HEXA 3D GEL illustre parfaitement toutes les évolutions qui proviennent des cuissards portés par nos équipes pros route.</p>
-					<p>La fibre utilisée a été développée spécialement pour EKOÏ et possède 5 caractéristiques principales : respirabilité, finesse, souplesse, solidité et opacité.</p>
-					<p>S’adressant avant tout à des pratiquants assidus ou à des compétiteurs qui peuvent rouler jusqu’à 6 heures par sortie, ce cuissard se distingue par son motif hexagonal texturé.<br>
-						Esthétique, il présente de par la spécificité géométrique de sa structure un intérêt technique majeur en favorisant l’aérodynamisme. Le flux d’air suit en effet le chemin "tracé" par les alvéoles hexagonales, optimisant ainsi la pénétration dans l’air.</p>
-					<p>Côté look, grâce à une nouvelle technique, nous avons supprimé les transferts ou l’impression de nos logos. Ces derniers sont dorénavant gravés dans le tissu. Cela assure à la fois plus de discrétion visuelle et moins d’usure sur la durée.</p>
-					<p>Les nouvelles bretelles garantissent un maintien confortable et efficace sans tension au niveau des épaules.<br>
-						La peau 3D GEL est adaptée à votre poids. Elle absorbe les micro vibrations sans être trop épaisse ; elle présente 3 largeurs et 3 densités de gel différentes ; elle évacue efficacement la transpiration car elle est micro perforée sur toute sa surface.</p>
-				</div>
-				<img src="/img/description-1.jpg" alt="">
-			</div>
-			<div class="row col-2 reverse">
-				<img src="/img/description-2.jpg" alt="">
-				<div class="list">
-					<h2 class="title">5 caractéristiques principales</h2>
-					<ol>
-						<li>Respirabilité</li>
-						<li>Finesse</li>
-						<li>Souplesse</li>
-						<li>Solidité</li>
-						<li>Opacité</li>
-					</ol>
-				</div>
-			</div>
-			<div class="row col-2">
-				<div>
-					<h2 class="title">Motif hexagonal texturé</h2>
-					<p>Esthétique et aérodynamique.</p>
-					<img src="/img/hex.jpg" alt="">
-				</div>
-				<img src="/img/description-3.jpg" alt="">
-			</div>
-			<div class="row">
-				<h2 class="title">Peau EKOÏ 3D GEL</h2>
-				<p>3 densités de gel et 3 largeurs de peau adaptées à votre poids.</p>
-				<img src="/img/description-4.jpg" alt="">
-			</div> #}
 		</div>
 		<div class="product-characteristics">
 			<h2 class="section-title">Caractéristiques</h2>
 			<div class="swiper characteristics-slider">
 				<div class="swiper-wrapper">
-				{% for feature in product.features %}
-					<div class="swiper-slide">
-						<div class="image">
-							<img src="http://localhost/media/{{ feature.image }}" alt="">
+					{% for feature in product.features %}
+						<div class="swiper-slide">
+							<div class="image">
+								<img src="http://localhost/media/{{ feature.image }}" alt="">
+							</div>
+							<h3 class="title">{{ feature.title }}</h3>
+							<p>{{ feature.description|nl2br|raw }}</p>
 						</div>
-						<h3 class="title">{{ feature.title }}</h3>
-						<p>{{ feature.description }}</p>
-					</div>
-				{% endfor %}
-					{# <div class="swiper-slide">
-						<div class="image">
-							<img src="/img/characteristic-1.jpg" alt="">
-						</div>
-						<h3 class="title">PEAU GEL</h3>
-						<ul>
-							<li>Densité du GEL (85, 100, 120) adaptée à votre poids.</li>
-							<li>3 largeurs de peau (15,5cm, 16,5cm, 17,5cm) selon votre poids.</li>
-							<li>Gel injecté qui ne plisse pas et ne se déforme pas.</li>
-							<li>Séchage et évacuation de la sueur optimisée grâce aux perforations présentes sur l’ensemble de la peau : la peau reste sèche tout au long de vos sorties.</li>
-							<li>Élasticité : la peau se fait oublier et s’adapte à votre fessier.</li>
-							<li>Coutures de la peau en zig-zag pour plus de solidité et d’élasticité.</li>
-						</ul>
-					</div>
-					<div class="swiper-slide">
-						<div class="image">
-							<img src="/img/characteristic-2.jpg" alt="">
-						</div>
-						<h3 class="title">Tissu</h3>
-						<ul>
-							<li>Lycra technique Made in France 210g / m2.</li>
-							<li>Opacité maximale pour une couleur parfaite et protection anti-UV (UPF 50+).</li>
-							<li>Fibre 250g bidirectionnelle développée spécialement pour Ekoï.</li>
-							<li>Bi-élasticité et faible déformabilité : étirement / retour à la forme d’origine.</li>
-							<li>Excellente respirabilité.</li>
-							<li>Excellent maintien musculaire et liberté de mouvement.</li>
-						</ul>
-					</div>
-					<div class="swiper-slide">
-						<div class="image">
-							<img src="/img/characteristic-3.jpg" alt="">
-						</div>
-						<h3 class="title">Bretelles</h3>
-						<p>Avec nouvelle bande extensible pour un maintien confortable et efficace sans tension au niveau des épaules.</p>
-					</div>
-					<div class="swiper-slide">
-						<div class="image">
-							<img src="/img/characteristic-4.jpg" alt="">
-						</div>
-						<h3 class="title">Finitions</h3>
-						<ul>
-							<li>Découpe laser au niveau des cuisses.</li>
-							<li>Inserts silicone de 5cm pour un maintien parfait sur les cuisses lors du pédalage.</li>
-							<li>Coutures plates anti friction.</li>
-							<li>Logos Ekoi gravés dans la fibre (discret et sans risque d’usure).</li>
-							<li>Motif hexagonal texturé</li>
-						</ul>
-					</div> #}
+					{% endfor %}
 				</div>
 				<div class="swiper-nav">
 					<div class="swiper-button-prev"></div>
@@ -229,43 +149,22 @@
 		</div>
 		<div class="product-accordion-wrapper">
 			<div class="accordion">
-				<details open>
-					<summary>Usage</summary>
-					<ul>
-						<li>Route - jusqu’à 6h</li>
-						<li>Entraînement ou compétition.</li>
-						<li>Météo : printanière / estivale</li>
-					</ul>
-				</details>
-				<details open>
-					<summary>Composition</summary>
-					<ul>
-						<li>80% Polyamide.</li>
-						<li>20% Élasthanne.</li>
-					</ul>
-				</details>
-				<details open>
-					<summary>Conseils d’entretien</summary>
-					<ul>
-						<li>Lavage en machine à 30°.</li>
-						<li>Avant le lavage, retournez le cuissard (coutures à l’extérieur).</li>
-						<li>Pas d’essorage.</li>
-						<li>Pas d’assouplissant.</li>
-						<li>Pas de sèche-linge.</li>
-						<li>Pas de repassage</li>
-					</ul>
-				</details>
-				<details open>
-					<summary>Traçabilité et Environnement</summary>
-					<ul>
-						<li>Conception : France</li>
-						<li>TissageTricotage : Italie</li>
-						<li>Teinture : Italie</li>
-						<li>Confection : Albanie</li>
-					</ul>
-				</details>
+				{% for attribute in product.attributes %}
+					<details open>
+						<summary>{{ attribute.name }}</summary>
+						<ul>
+							{% if attribute.value|length > 0 %}
+								{% for value in attribute.value %}
+									<li>{{ value }}</li>
+								{% endfor %}
+							{% else %}
+								<li>{{ attribute.value|nl2br|raw }}</li>
+							{% endif %}
+						</ul>
+					</details>
+				{% endfor %}
 			</div>
-			<img src="/img/accordion.jpg" alt="">
+			<img src="http://localhost/media/{{ product.attributeImage }}" alt="">
 		</div>
 		<div class="product-review" id="review">
 			<h2 class="section-title">AVIS CLIENT</h2>
